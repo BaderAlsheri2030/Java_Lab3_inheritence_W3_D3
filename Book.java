@@ -49,11 +49,9 @@ public class Book extends Media{
     }
 
     public void purchase(User user){
-        Media purchaseBook =new Media();
-        for (int i = 0; i < user.getPurchasedMediaList().size(); i++) {
-            user.getPurchasedMediaList().add(i, purchaseBook);
-        }
-        setStock(getStock()-1);
+        Book book = new Book();
+        user.getPurchasedMediaList().add(book);
+        setStock(book.getStock()-1);
     }
 
     public boolean isBestSeller(){

@@ -24,6 +24,7 @@ public class Store {
     public ArrayList<Media> displayMedia(){
         return medias;
     }
+
     public Book searchBook(String title){
         List<Book> bookList = new ArrayList<Book>();
         Book b =new Book();

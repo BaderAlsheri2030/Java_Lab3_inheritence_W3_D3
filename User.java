@@ -41,8 +41,12 @@ public class User {
     }
 
     public ArrayList<Media> getShoppingCart() {
+        if (shoppingCart.isEmpty()) {
+            System.out.println("Cart is empty");
+        }
         return shoppingCart;
     }
+
 
     public void setShoppingcart(ArrayList<Media> shoppingCart) {
         this.shoppingCart = shoppingCart;
@@ -55,18 +59,24 @@ public class User {
         shoppingCart.remove(media);
     }
     public void checkout(){
-        Book s = new Book();
-        setPurchasedMediaList(getShoppingCart());
-        s.setStock(s.getStock()-1);
-    }
+        setPurchasedMediaList(shoppingCart);
+        try {
+        for (Media m: shoppingCart) {
+            removeFromCart(m);
+        }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        }
+
+
 
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
-                ", purchasedMediaList=" + purchasedMediaList +
-                ", shoppingCart=" + shoppingCart +
                 '}';
     }
 }

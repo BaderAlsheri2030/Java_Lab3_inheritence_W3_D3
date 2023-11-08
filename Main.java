@@ -53,7 +53,7 @@ public class Main {
             Movie movie3 = new Movie("The Batman","Matt Reeves","1779514298",130,175);
             movies.add(movie1);
             movies.add(movie2);
-            movies.add(movie3);
+//            movies.add(movie3);
             System.out.println("Similar Movies with the same author"+movie1.recommendSimilarMovies(movies));
 
             //added movie2 to purchased list
@@ -79,14 +79,13 @@ public class Main {
             addToCart.add(song1);
             addToCart.add(song2);
             addToCart.add(movie1);
-
+            addToCart.add(movie3);
 
             User user1 = new User("bader_14256","bader@test.com",purchaseMedia,addToCart);
             System.out.println("user: "+user1.getUsername()+" Purchased Media:  "+user1.getPurchasedMediaList());
             System.out.println("Media added to the cart: "+user1.getShoppingCart());
             song1.listen(user1);
             System.out.println("-------------------------");
-
 
             ArrayList<Novel> novels = new ArrayList<Novel>();
             ArrayList<Review> novelsReviews = new ArrayList<Review>();
@@ -101,8 +100,10 @@ public class Main {
             Review r2 = new Review("sara",6,"I liked it");
             novelsReviews.add(r2);
             System.out.println(novelOne.getTitle()+" genre is "+novelOne.getGenre());
-            addToCart.add(novelOne);
-            System.out.println(novels);
+
+
+
+            // System.out.println(novels);
 
             System.out.println("All novel reviews: "+novelsReviews);
             System.out.println("-------------------------");
@@ -127,6 +128,7 @@ public class Main {
 
 
 
+
             user1.addTocart(academicBook1);
             System.out.println("user: "+user1.getUsername()+" Purchased Media:  "+user1.getPurchasedMediaList());
             System.out.println("Media added to the cart: "+user1.getShoppingCart());
@@ -135,10 +137,19 @@ public class Main {
             user1.removeFromCart(song2);
             System.out.println("Updated Media in cart: "+user1.getShoppingCart());
 
+            addToCart.add(novelOne);
+
+
+
             ArrayList<Media> addToCart2 = new ArrayList<Media>();
             ArrayList<Media> purchaseMedia2 = new ArrayList<Media>();
+
+
             //
+
             User user2 = new User("Reham_2","reham@test.com",purchaseMedia2,addToCart2);
+            System.out.println(book1.getStock());
+
             Store store1 = new Store();
             store1.addUser(user1);
             store1.addUser(user2);
@@ -150,6 +161,22 @@ public class Main {
             store1.addMedia(book1);
             System.out.println("List of users in store: "+store1.displayUsers());
             System.out.println("List of media in the store: "+store1.displayMedia());
+            System.out.println("is it empty ? "+user1.getShoppingCart());
+
+//            try {
+//
+//
+//                    user1.checkout();
+//            }catch (Exception e){
+//                    System.out.println(e.getMessage());
+//            }
+            user1.checkout();
+
+            System.out.println("is it empty ? "+user1.getShoppingCart());
+
+
+
+
 
 
 
